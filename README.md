@@ -30,7 +30,7 @@ customer_segmentation/
 │  ├─ test_data_preprocessing.py
 │  ├─ test_feature_engineering.py
 │ 
-├─ main.py
+├─ app.py
 ├─ requirements.txt
 └─ README.md
 
