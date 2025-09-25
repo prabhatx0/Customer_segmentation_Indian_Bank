@@ -15,26 +15,32 @@ Providing a foundation for creating targeted marketing strategies for each perso
 Codebase Structure
 The project is organized into a modular structure for clarity, maintainability, and scalability.
 
-/customer_segmentation_bfsi
-|-- /data
-|   |-- transactions.csv      # Raw and processed data
-|   |-- customer_segments.csv # Output file with final segments and personas
-|-- /notebooks
-|   `-- (Exploratory notebooks, if any)
-|-- /src
-|   |-- data_preprocessing.py   # Load, clean, and preprocess data
-|   |-- feature_engineering.py  # Compute RFM features
-|   |-- clustering.py           # K-Means clustering and optimal k analysis
-|   |-- visualization.py        # Generate plots for clusters and personas
-|   |-- personas.py             # Map clusters to business personas
-|-- /tests
-|   |-- test_data_preprocessing.py
-|   |-- test_feature_engineering.py
-|-- /visuals
-|   |-- (Generated plots and charts)
-|-- main.py                     # Main script to run the entire pipeline
-|-- requirements.txt            # Project dependencies
-`-- README.md                   # This file
+```text
+customer_segmentation_bfsi/
+├─ data/
+│  ├─ raw/
+│  │  └─ transactions.csv        # (example synthetic or downloaded Kaggle dataset)
+│  └─ processed/
+│     └─ rfm_features.parquet
+├─ notebooks/
+│  └─ eda_and_clustering.ipynb
+├─ src/
+│  ├─ __init__.py
+│  ├─ data_preprocessing.py
+│  ├─ feature_engineering.py
+│  ├─ clustering.py
+│  ├─ visualization.py
+│  ├─ personas.py
+│  └─ utils.py
+├─ tests/
+│  ├─ test_data_preprocessing.py
+│  ├─ test_feature_engineering.py
+│  └─ test_clustering.py
+├─ main.py
+├─ requirements.txt
+└─ README.md
+
+```
 
 Technical Stack
 Python 3.10+
