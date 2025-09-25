@@ -13,17 +13,11 @@ Translating these data-driven clusters into understandable business personas (e.
 Providing a foundation for creating targeted marketing strategies for each persona.
 
 Codebase Structure
-The project is organized into a modular structure for clarity, maintainability, and scalability.
 
 ```text
-customer_segmentation_bfsi/
+customer_segmentation/
 ├─ data/
-│  ├─ raw/
-│  │  └─ transactions.csv        # (example synthetic or downloaded Kaggle dataset)
-│  └─ processed/
-│     └─ rfm_features.parquet
-├─ notebooks/
-│  └─ eda_and_clustering.ipynb
+│  │─ transactions.csv       
 ├─ src/
 │  ├─ __init__.py
 │  ├─ data_preprocessing.py
@@ -31,11 +25,11 @@ customer_segmentation_bfsi/
 │  ├─ clustering.py
 │  ├─ visualization.py
 │  ├─ personas.py
-│  └─ utils.py
+|
 ├─ tests/
 │  ├─ test_data_preprocessing.py
 │  ├─ test_feature_engineering.py
-│  └─ test_clustering.py
+│ 
 ├─ main.py
 ├─ requirements.txt
 └─ README.md
@@ -59,59 +53,17 @@ Setup and Installation
 Clone the repository:
 
 git clone <repository-url>
-cd customer_segmentation_bfsi
+cd customer_segmentation
 
-Create a virtual environment (recommended):
-
-python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+Create a virtual environment
 
 Install the required dependencies:
 
 pip install -r requirements.txt
 
 How to Run the Project
-The entire pipeline can be executed by running the main.py script from the root directory of the project (customer_segmentation_bfsi).
+The entire pipeline can be executed by running the main.py script from the root directory of the project.
 
 python main.py
 
-What the script does:
-Loads the transaction data from data/transactions.csv.
 
-Cleans and preprocesses the data.
-
-Calculates RFM features for each customer.
-
-Scales the RFM features.
-
-Determines the optimal number of clusters (k) using the Elbow and Silhouette methods and saves the plots to the visuals folder.
-
-Performs K-Means clustering with the chosen k (hardcoded as 4 in main.py for demonstration).
-
-Assigns business personas to each cluster.
-
-Generates and saves visualizations (cluster distribution, boxplots, 3D scatter plot) to the visuals folder.
-
-Saves the final segmented data with customer IDs, RFM values, cluster labels, and personas to data/customer_segments.csv.
-
-Expected Outputs
-data/customer_segments.csv: A CSV file containing the final segmentation results for each customer.
-| CustomerID | Recency | Frequency | MonetaryValue | Cluster | Persona               |
-|------------|---------|-----------|---------------|---------|-----------------------|
-| 1001       | ...     | ...       | ...           | 0       | Champions             |
-| 1002       | ...     | ...       | ...           | 1       | At-Risk Customers     |
-
-Visualizations in the /visuals folder:
-
-optimal_k_plots.png: Elbow and Silhouette plots to help determine the best k.
-
-cluster_distribution.png: Bar chart showing the number of customers in each cluster.
-
-rfm_boxplots.png: Boxplots comparing the RFM distributions across clusters.
-
-3d_scatter_plot.html: An interactive 3D plot to visualize the clusters.
-
-Running Tests
-To ensure the core logic is working correctly, you can run the unit tests.
-
-python -m unittest discover tests
